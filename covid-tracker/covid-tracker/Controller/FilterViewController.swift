@@ -68,6 +68,7 @@ extension FilterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         completion?(states[indexPath.row])
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

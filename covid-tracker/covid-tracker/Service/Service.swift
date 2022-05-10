@@ -14,7 +14,7 @@ protocol ServiceProtocol {
 
 enum DataScope {
     case nationalData
-    case perStateData(State)
+    case perStateData(Datum)
 }
 
 struct Constants {
@@ -31,6 +31,26 @@ class Service: ServiceProtocol {
     
     public func getCovidData(for scope: DataScope, completion: @escaping(Result<CovidData, Error>)-> Void){
         
+        var url: String
+        switch scope {
+        case .nationalData:
+            url = "https://api.covidtracking.com/v2/us/daily.json"
+        case .perStateData(let datum):
+            url = "https://api.covidtracking.com/v2/states/\(datum.stateCode.lowercased())/daily.json"
+        }
+        
+        guard let url = URL(string: url) else { return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else { return}
+            
+            do {
+                let result = try JSONDecoder().decode(CovidData.self, from: data)
+                completion(.success(result))
+            } catch let error {
+                completion(.failure(error))
+            }
+            
+        }.resume()
     }
     
     public func getStateList(completion: @escaping(Result<State, Error>)-> Void){

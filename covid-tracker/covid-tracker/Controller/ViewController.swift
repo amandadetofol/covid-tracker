@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    public var scope: DataScope = .nationalData
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,10 @@ class ViewController: UIViewController {
                                                                  target: self,
                                                                  action: #selector(handleFilterButtonTap))
     }
+    
+    private func fetchData(){
+        
+    }
 
 }
 
@@ -30,6 +36,11 @@ extension ViewController {
     
     @objc func handleFilterButtonTap() {
         let viewController = FilterViewController()
+        viewController.completion = { state in
+            self.scope = .perStateData(state)
+            self.fetchData()
+        }
+        
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
