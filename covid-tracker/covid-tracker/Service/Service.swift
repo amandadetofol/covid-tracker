@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ServiceProtocol {
-    func getCovidData(for scope: DataScope, completion: @escaping(Result<CovidData, Error>)-> Void)
+    func getCovidData(for scope: DataScope, completion: @escaping(Result<CovidDataWelcome, Error>)-> Void)
     func getStateList(completion: @escaping(Result<State, Error>)-> Void)
 }
 
@@ -29,7 +29,7 @@ class Service: ServiceProtocol {
         
     }
     
-    public func getCovidData(for scope: DataScope, completion: @escaping(Result<CovidData, Error>)-> Void){
+    public func getCovidData(for scope: DataScope, completion: @escaping(Result<CovidDataWelcome, Error>)-> Void){
         
         var url: String
         switch scope {
@@ -44,7 +44,7 @@ class Service: ServiceProtocol {
             guard let data = data, error == nil else { return}
             
             do {
-                let result = try JSONDecoder().decode(CovidData.self, from: data)
+                let result = try JSONDecoder().decode(CovidDataWelcome.self, from: data)
                 completion(.success(result))
             } catch let error {
                 completion(.failure(error))
