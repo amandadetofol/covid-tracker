@@ -9,7 +9,7 @@ import Foundation
 
 protocol ServiceProtocol {
     func getCovidData(for scope: DataScope, completion: @escaping(Result<CovidData, Error>)-> Void)
-    func getStateList(completion: @escaping(Result<[State], Error>)-> Void)
+    func getStateList(completion: @escaping(Result<State, Error>)-> Void)
 }
 
 enum DataScope {
@@ -33,8 +33,19 @@ class Service: ServiceProtocol {
         
     }
     
-    public func getStateList(completion: @escaping(Result<[State], Error>)-> Void){
+    public func getStateList(completion: @escaping(Result<State, Error>)-> Void){
         guard let url = URL(string: Constants.allStates) else { return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else { return}
+            
+            do {
+                let result = try JSONDecoder().decode(State.self, from: data)
+                completion(.success(result))
+            } catch let error {
+                completion(.failure(error))
+            }
+            
+        }.resume()
     }
     
 }
