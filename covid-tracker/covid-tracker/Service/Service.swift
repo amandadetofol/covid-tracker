@@ -12,6 +12,10 @@ protocol ServiceProtocol {
     func getStateList(completion: @escaping(Result<State, Error>)-> Void)
 }
 
+protocol HandleServiceError{
+    func handleError()
+}
+
 enum DataScope {
     case nationalData
     case perStateData(Datum)
@@ -24,6 +28,7 @@ struct Constants {
 class Service: ServiceProtocol {
 
     static let shared: Service = Service()
+    var delegate: HandleServiceError?
     
     private init() {
         
@@ -34,7 +39,7 @@ class Service: ServiceProtocol {
         var url: String
         switch scope {
         case .nationalData:
-            url = "https://api.covidtracking.com/v2/us/daily.json"
+            url = "https://api.covidtracking.com/v2/states/ca/daily.json"
         case .perStateData(let datum):
             url = "https://api.covidtracking.com/v2/states/\(datum.stateCode.lowercased())/daily.json"
         }
@@ -48,6 +53,7 @@ class Service: ServiceProtocol {
                 completion(.success(result))
             } catch let error {
                 completion(.failure(error))
+                self.delegate?.handleError()
             }
             
         }.resume()

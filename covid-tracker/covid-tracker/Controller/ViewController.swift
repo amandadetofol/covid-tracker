@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     }
     
     public var scope: DataScope = .nationalData
-
+    
     override func viewDidLoad() {
         self.fetchData()
         super.viewDidLoad()
@@ -39,13 +39,12 @@ class ViewController: UIViewController {
     }
     
     //MARK: Private methods
-    
     private func setupView(){
         self.view.addSubview(covidDataTableView)
     }
     
     private func setupNavigationBar(){
-        self.navigationController?.navigationBar.prefersLargeTitles = true 
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "COVID Cases"
         self.setupRightBarButton()
     }
@@ -54,7 +53,7 @@ class ViewController: UIViewController {
         var textTitle: String
         switch scope {
         case .nationalData:
-             textTitle = "National"
+            textTitle = "National"
         case .perStateData(let datum):
             textTitle = datum.name
         }
@@ -67,7 +66,10 @@ class ViewController: UIViewController {
     }
     
     private func fetchData(){
-        Service.shared.getCovidData(for: self.scope) { result in
+        let service = Service.shared
+        service.delegate = self
+        
+        service.getCovidData(for: self.scope) { result in
             switch result {
             case .success(let covidData):
                 self.covidData = covidData.data
@@ -77,7 +79,19 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+}
 
+
+extension ViewController: HandleServiceError {
+    func handleError() {
+        let alert = UIAlertController(title: "Ops!", message: "The data for this state are unavailable", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default) { action in
+            self.dismiss(animated: true )
+        }
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ViewController: UITableViewDataSource {
@@ -92,7 +106,7 @@ extension ViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = "Positive cases: \(covidData[indexPath.row].cases.total.value)"
         return cell
     }
-
+    
 }
 
 extension ViewController {
