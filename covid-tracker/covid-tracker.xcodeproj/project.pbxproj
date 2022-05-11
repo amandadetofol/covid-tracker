@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		A674945F282C13D0005718D2 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = A674945E282C13D0005718D2 /* Charts */; };
+		A6749461282C1F11005718D2 /* DayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6749460282C1F11005718D2 /* DayData.swift */; };
+		A6749463282C2451005718D2 /* ViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6749462282C2451005718D2 /* ViewController+UITableViewDelegate.swift */; };
+		A6749465282C247C005718D2 /* ViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6749464282C247C005718D2 /* ViewController+UITableViewDataSource.swift */; };
+		A6749467282C2496005718D2 /* ViewController+HandleServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6749466282C2496005718D2 /* ViewController+HandleServiceError.swift */; };
+		A674946B282C2598005718D2 /* FilterViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A674946A282C2598005718D2 /* FilterViewController+UITableViewDelegate.swift */; };
+		A674946D282C25B0005718D2 /* FilterViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A674946C282C25B0005718D2 /* FilterViewController+UITableViewDataSource.swift */; };
+		A6749470282C25F2005718D2 /* CovidDayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A674946F282C25F2005718D2 /* CovidDayDetailView.swift */; };
+		A6749472282C2621005718D2 /* CovidDayDetailErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6749471282C2621005718D2 /* CovidDayDetailErrorView.swift */; };
+		A6749474282C3053005718D2 /* CovidDayDataErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6749473282C3053005718D2 /* CovidDayDataErrorViewController.swift */; };
+		A6749477282C3374005718D2 /* CovidDayDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6749476282C3374005718D2 /* CovidDayDataViewController.swift */; };
 		A69F0AED2828637D00EE7CCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F0AEC2828637D00EE7CCE /* AppDelegate.swift */; };
 		A69F0AF12828637D00EE7CCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F0AF02828637D00EE7CCE /* ViewController.swift */; };
 		A69F0AF62828637E00EE7CCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69F0AF52828637E00EE7CCE /* Assets.xcassets */; };
@@ -18,6 +28,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6749460282C1F11005718D2 /* DayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayData.swift; sourceTree = "<group>"; };
+		A6749462282C2451005718D2 /* ViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		A6749464282C247C005718D2 /* ViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		A6749466282C2496005718D2 /* ViewController+HandleServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+HandleServiceError.swift"; sourceTree = "<group>"; };
+		A674946A282C2598005718D2 /* FilterViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		A674946C282C25B0005718D2 /* FilterViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FilterViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		A674946F282C25F2005718D2 /* CovidDayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDayDetailView.swift; sourceTree = "<group>"; };
+		A6749471282C2621005718D2 /* CovidDayDetailErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDayDetailErrorView.swift; sourceTree = "<group>"; };
+		A6749473282C3053005718D2 /* CovidDayDataErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDayDataErrorViewController.swift; sourceTree = "<group>"; };
+		A6749476282C3374005718D2 /* CovidDayDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDayDataViewController.swift; sourceTree = "<group>"; };
 		A69F0AE92828637D00EE7CCE /* covid-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "covid-tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69F0AEC2828637D00EE7CCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A69F0AF02828637D00EE7CCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +61,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A6749468282C24B4005718D2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A69F0AF02828637D00EE7CCE /* ViewController.swift */,
+				A6749466282C2496005718D2 /* ViewController+HandleServiceError.swift */,
+				A6749462282C2451005718D2 /* ViewController+UITableViewDelegate.swift */,
+				A6749464282C247C005718D2 /* ViewController+UITableViewDataSource.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A6749469282C2579005718D2 /* FilterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A69F0B012828662300EE7CCE /* FilterViewController.swift */,
+				A674946A282C2598005718D2 /* FilterViewController+UITableViewDelegate.swift */,
+				A674946C282C25B0005718D2 /* FilterViewController+UITableViewDataSource.swift */,
+			);
+			path = FilterViewController;
+			sourceTree = "<group>";
+		};
+		A674946E282C25E1005718D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A674946F282C25F2005718D2 /* CovidDayDetailView.swift */,
+				A6749471282C2621005718D2 /* CovidDayDetailErrorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A6749475282C335F005718D2 /* CovidDaydata */ = {
+			isa = PBXGroup;
+			children = (
+				A6749473282C3053005718D2 /* CovidDayDataErrorViewController.swift */,
+				A6749476282C3374005718D2 /* CovidDayDataViewController.swift */,
+			);
+			path = CovidDaydata;
+			sourceTree = "<group>";
+		};
 		A69F0AE02828637D00EE7CCE = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +119,7 @@
 		A69F0AEB2828637D00EE7CCE /* covid-tracker */ = {
 			isa = PBXGroup;
 			children = (
+				A674946E282C25E1005718D2 /* View */,
 				A69F0B062829409500EE7CCE /* Model */,
 				A69F0B032829407800EE7CCE /* Service */,
 				A69F0B002828649B00EE7CCE /* Controller */,
@@ -73,8 +133,9 @@
 		A69F0B002828649B00EE7CCE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A69F0AF02828637D00EE7CCE /* ViewController.swift */,
-				A69F0B012828662300EE7CCE /* FilterViewController.swift */,
+				A6749475282C335F005718D2 /* CovidDaydata */,
+				A6749469282C2579005718D2 /* FilterViewController */,
+				A6749468282C24B4005718D2 /* ViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -92,6 +153,7 @@
 			children = (
 				A69F0B07282940A000EE7CCE /* CovidData.swift */,
 				A69F0B092829422500EE7CCE /* State.swift */,
+				A6749460282C1F11005718D2 /* DayData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,12 +233,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6749474282C3053005718D2 /* CovidDayDataErrorViewController.swift in Sources */,
 				A69F0B022828662300EE7CCE /* FilterViewController.swift in Sources */,
+				A6749472282C2621005718D2 /* CovidDayDetailErrorView.swift in Sources */,
+				A6749467282C2496005718D2 /* ViewController+HandleServiceError.swift in Sources */,
+				A6749463282C2451005718D2 /* ViewController+UITableViewDelegate.swift in Sources */,
+				A6749461282C1F11005718D2 /* DayData.swift in Sources */,
 				A69F0B08282940A000EE7CCE /* CovidData.swift in Sources */,
 				A69F0B052829408600EE7CCE /* Service.swift in Sources */,
+				A674946B282C2598005718D2 /* FilterViewController+UITableViewDelegate.swift in Sources */,
+				A674946D282C25B0005718D2 /* FilterViewController+UITableViewDataSource.swift in Sources */,
+				A6749465282C247C005718D2 /* ViewController+UITableViewDataSource.swift in Sources */,
 				A69F0AF12828637D00EE7CCE /* ViewController.swift in Sources */,
 				A69F0AED2828637D00EE7CCE /* AppDelegate.swift in Sources */,
 				A69F0B0A2829422500EE7CCE /* State.swift in Sources */,
+				A6749477282C3374005718D2 /* CovidDayDataViewController.swift in Sources */,
+				A6749470282C25F2005718D2 /* CovidDayDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

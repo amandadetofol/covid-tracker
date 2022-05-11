@@ -10,6 +10,7 @@ import Foundation
 protocol ServiceProtocol {
     func getCovidData(for scope: DataScope, completion: @escaping(Result<CovidDataWelcome, Error>)-> Void)
     func getStateList(completion: @escaping(Result<State, Error>)-> Void)
+    func getDayDataForDate(_ date: String, state: String,   completion: @escaping(Result<DayData, Error>)-> Void)
 }
 
 protocol HandleServiceError{
@@ -23,6 +24,7 @@ enum DataScope {
 
 struct Constants {
     static let allStates: String = "https://api.covidtracking.com/v2/states.json"
+    static let dayCovidDataBaseUrl: String = "https://api.covidtracking.com/v1/states/"
 }
 
 class Service: ServiceProtocol {
@@ -74,4 +76,18 @@ class Service: ServiceProtocol {
         }.resume()
     }
     
+    public func getDayDataForDate(_ date: String, state: String,   completion: @escaping(Result<DayData, Error>)-> Void){
+        guard let url = URL(string: "\(Constants.dayCovidDataBaseUrl)\(state)/\(date).json") else { return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else { return}
+            
+            do {
+                let result = try JSONDecoder().decode(DayData.self, from: data)
+                completion(.success(result))
+            } catch let error {
+                completion(.failure(error))
+            }
+            
+        }.resume()
+    }
 }

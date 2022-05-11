@@ -14,8 +14,8 @@
             filePath = "covid-tracker/Controller/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "fetchData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,17 +23,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A92AAD8F-CEDA-4B86-890F-3BF67133C41A"
+            uuid = "39BABAC4-32A6-4B40-B846-E25626681F3F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "covid-tracker/Controller/ViewController.swift"
+            filePath = "covid-tracker/Service/Service.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "getDayDataForDate(_:state:completion:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9133318B-0567-41A1-B911-1DBD7BC021CF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "covid-tracker/Controller/ViewController/ViewController+UITableViewDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "handleData(data:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9133318B-0567-41A1-B911-1DBD7BC021CF - c94ee0fc97625780"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "covid_tracker.ViewController.handleData(data: covid_tracker.DayData) -&gt; ()"
+                  moduleName = "covid-tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amandadetofol/Desktop/desenvolvimento/covid-tracker/covid-tracker/covid-tracker/Controller/ViewController/ViewController+UITableViewDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "9133318B-0567-41A1-B911-1DBD7BC021CF - c94ee0fc97625780"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "covid_tracker.ViewController.handleData(data: covid_tracker.DayData) -&gt; ()"
+                  moduleName = "covid-tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/amandadetofol/Desktop/desenvolvimento/covid-tracker/covid-tracker/covid-tracker/Controller/ViewController/ViewController+UITableViewDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "224">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -63,26 +63,6 @@ class FilterViewController: UIViewController {
     }
 }
 
-extension FilterViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        completion?(states[indexPath.row])
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-}
 
-extension FilterViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.states.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
-        cell.textLabel?.text = states[indexPath.row].name
-        return cell
-    }
 
-}
+

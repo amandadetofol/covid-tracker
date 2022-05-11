@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
         tableView.dataSource = self
+        tableView.delegate = self
         return tableView
     }()
     
@@ -110,34 +111,6 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: HandleServiceError {
-    func handleError() {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Ops!", message: "The data for this state are unavailable", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default) { action in
-                self.dismiss(animated: true )
-            }
-            alert.addAction(okButton)
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-}
-
-extension ViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.covidData.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cellId")
-        cell.textLabel?.text = "Date: \(covidData[indexPath.row].date)"
-        cell.detailTextLabel?.text = "Positive cases: \(covidData[indexPath.row].cases.total.value)"
-        return cell
-    }
-    
-}
-
 extension ViewController {
     
     @objc func handleFilterButtonTap() {
@@ -146,8 +119,6 @@ extension ViewController {
             self.scope = .perStateData(state)
             self.fetchData()
         }
-        
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
 }
