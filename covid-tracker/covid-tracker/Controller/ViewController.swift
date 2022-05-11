@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 class ViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class ViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.covidDataTableView.reloadData()
+                self.createGraph()
             }
         }
     }
@@ -39,6 +41,29 @@ class ViewController: UIViewController {
     }
     
     //MARK: Private methods
+    
+    private func createGraph(){
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.width/1.5))
+        headerView.clipsToBounds = true
+        headerView.backgroundColor = .darkGray
+        
+        var entries: [BarChartDataEntry] = []
+        for index in 0..<covidData.count {
+            let data = covidData[index]
+            entries.append(.init(x: Double(index), y: Double(data.cases.total.value)))
+        }
+        
+        let dataSet = BarChartDataSet(entries: entries)
+        dataSet.colors = ChartColorTemplates.vordiplom()
+        
+        let data = BarChartData(dataSet: dataSet)
+        
+        let chart = BarChartView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.width/1.5))
+        headerView.addSubview(chart)
+        chart.data = data
+        covidDataTableView.tableHeaderView = headerView
+    }
+    
     private func setupView(){
         self.view.addSubview(covidDataTableView)
     }
@@ -85,12 +110,14 @@ class ViewController: UIViewController {
 
 extension ViewController: HandleServiceError {
     func handleError() {
-        let alert = UIAlertController(title: "Ops!", message: "The data for this state are unavailable", preferredStyle: .alert)
-        let okButton = UIAlertAction(title: "OK", style: .default) { action in
-            self.dismiss(animated: true )
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Ops!", message: "The data for this state are unavailable", preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "OK", style: .default) { action in
+                self.dismiss(animated: true )
+            }
+            alert.addAction(okButton)
+            self.present(alert, animated: true, completion: nil)
         }
-        alert.addAction(okButton)
-        self.present(alert, animated: true, completion: nil)
     }
 }
 

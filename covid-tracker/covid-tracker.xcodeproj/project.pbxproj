@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A674945F282C13D0005718D2 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = A674945E282C13D0005718D2 /* Charts */; };
 		A69F0AED2828637D00EE7CCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F0AEC2828637D00EE7CCE /* AppDelegate.swift */; };
 		A69F0AF12828637D00EE7CCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69F0AF02828637D00EE7CCE /* ViewController.swift */; };
 		A69F0AF62828637E00EE7CCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A69F0AF52828637E00EE7CCE /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A674945F282C13D0005718D2 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +112,9 @@
 			dependencies = (
 			);
 			name = "covid-tracker";
+			packageProductDependencies = (
+				A674945E282C13D0005718D2 /* Charts */,
+			);
 			productName = "covid-tracker";
 			productReference = A69F0AE92828637D00EE7CCE /* covid-tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -138,6 +143,9 @@
 				Base,
 			);
 			mainGroup = A69F0AE02828637D00EE7CCE;
+			packageReferences = (
+				A674945D282C13D0005718D2 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = A69F0AEA2828637D00EE7CCE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -365,6 +373,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A674945D282C13D0005718D2 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A674945E282C13D0005718D2 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A674945D282C13D0005718D2 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A69F0AE12828637D00EE7CCE /* Project object */;
 }
