@@ -47,8 +47,10 @@ class ViewController: UIViewController {
         headerView.clipsToBounds = true
         headerView.backgroundColor = .darkGray
         
+        
+        let set = covidData.prefix(20)
         var entries: [BarChartDataEntry] = []
-        for index in 0..<covidData.count {
+        for index in 0..<set.count {
             let data = covidData[index]
             entries.append(.init(x: Double(index), y: Double(data.cases.total.value)))
         }
